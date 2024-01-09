@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#
 # Created by: Noah Smith
 # Created on: January 8th, 2024
 # This program is the "Space Aliens" program on the PyBadge
@@ -19,5 +19,5 @@ def game_scene():
     while True:
         pass # placeholder
 
-if__name__ == "__main__":
+if __name__ == "__main__":
     game_scene()
