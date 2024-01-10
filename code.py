@@ -21,7 +21,12 @@ def game_scene():
     # Create a stage for the background to show up on
     #   and set the frame rate to 60fps
     game = stage.Stage(ugame.display, 60)
-    # set the layers
+
+    # set the layers of all sprites, items show up in order
+    game.layers = [background]
+
+    # render all sprites (background once per game scene)
+    game.render_block()
 
     # repeat forever, game loop
     while True:
