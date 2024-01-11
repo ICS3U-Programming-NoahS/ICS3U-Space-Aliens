@@ -34,7 +34,15 @@ def game_scene():
 
     # repeat forever, game loop
     while True:
-        pass # placeholder
+        
+        # Get user input
+
+        # Update game logic
+
+        # Redraw Sprites
+        game.render_Sprites([ship])
+        game.tick()
+
 
 if __name__ == "__main__":
     game_scene()
