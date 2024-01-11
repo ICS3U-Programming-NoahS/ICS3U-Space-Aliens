@@ -13,7 +13,7 @@ def game_scene():
 
     # image banks for CircuitPython
     image_bank_background = stage.Bank.from_bmp16("space_aliens_background.bmp")
-    image_bank_sprites = stage.Bank.from_bmp16("space_aliens.bmp]")
+    image_bank_sprites = stage.Bank.from_bmp16("space_aliens.bmp")
 
     # Set the background to image 0 in the image bank
     #   and the size (10x8 tiles of size 16x16)
@@ -27,7 +27,7 @@ def game_scene():
     game = stage.Stage(ugame.display, 60)
 
     # set the layers of all sprites, items show up in order
-    game.layers = [background]
+    game.layers = [ship] + [background]
 
     # render all sprites (background once per game scene)
     game.render_block()
@@ -38,9 +38,9 @@ def game_scene():
         # Get user input
 
         # Update game logic
-
+ 
         # Redraw Sprites
-        game.render_Sprites([ship])
+        game.render_sprites([ship])
         game.tick()
 
 
