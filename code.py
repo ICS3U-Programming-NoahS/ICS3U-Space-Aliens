@@ -127,11 +127,14 @@ def menu_scene():
 def game_scene():
     # this function is the main game game_scene
 
+    # for score
+    score = 0
+
     def show_alien():
         # This function takes an alien from off screen and moves it on screen
         for alien_number in range(len(aliens)):
             if aliens[alien_number].x < 0:
-                aliens[alien_number].move(random.randint(0 + constants.SPRITE_SIZE, constants.SCREEN_X - constants.SPRITE_SIZE), constants.SPRITE_SIZE)
+                aliens[alien_number].move(random.randint(0 + constants.SPRITE_SIZE, constants.SCREEN_X - constants.SPRITE_SIZE), constants.OFF_TOP_SCREEN)
                 break
 
     # image banks for CircuitPython
@@ -182,7 +185,7 @@ def game_scene():
     game = stage.Stage(ugame.display, constants.FPS)
 
     # set the layers of all sprites, items show up in order
-    game.layers = lasers + [ship] + aliens + [background]
+    game.layers = aliens + lasers + [ship] + [background]
 
     # render all sprites (background once per game scene)
     game.render_block()
@@ -245,10 +248,10 @@ def game_scene():
                 if lasers[laser_number].y < constants.OFF_TOP_SCREEN:
                     lasers[laser_number].move(constants.OFF_SCREEN_X, constants.OFF_SCREEN_Y)
         
-        # each frame move the aleins down, that are on screen
-        for alein_number in range(len(aliens)):
+        # each frame move the aliens down, that are on screen
+        for alien_number in range(len(aliens)):
             if aliens[alien_number].x > 0:
-                aliens[alien_number].move(aliens[alien_number].x, aliens[alien_number].y - constants.ALIEN_SPEED)
+                aliens[alien_number].move(aliens[alien_number].x, aliens[alien_number].y + constants.ALIEN_SPEED)
                 if aliens[alien_number].y > constants.SCREEN_Y:
                     aliens[alien_number].move(constants.OFF_SCREEN_X, constants.OFF_SCREEN_Y)
                     show_alien()
